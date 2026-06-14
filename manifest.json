@@ -1,13 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "Upwork Cover Letter Copilot",
+  "name": "Upwork AI Copilot",
   "version": "1.0",
-  "description": "Upwork Cover Letter Copilot powered by AI.",
-  "action": {
-    "default_popup": "popup.html"
-  },
-  "permissions": [
-    "activeTab",
-    "storage"
+  "description": "Upwork Cover Letter Copilot powered by Gemini.",
+  "action": { "default_popup": "popup.html" },
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": ["https://*.upwork.com/*", "https://generativelanguage.googleapis.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://*.upwork.com/*"],
+      "js": ["content.js"]
+    }
   ]
 }

@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head><style>body { width: 300px; padding: 10px; font-family: sans-serif; }</style></head>
+<head>
+    <meta charset="UTF-8">
+    <title>Upwork AI Copilot</title>
+    <style>
+        :root { --primary: #14a800; --bg: #f9fafb; --text: #222222; }
+        body { width: 320px; padding: 16px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background-color: var(--bg); margin: 0; color: var(--text); }
+        h2 { margin-top: 0; color: var(--primary); font-size: 18px; }
+        .card { background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 12px; }
+        input[type="password"] { width: 100%; padding: 8px; border: 1px solid #e0e0e0; border-radius: 4px; box-sizing: border-box; margin-bottom: 8px; }
+        textarea.bio { width: 100%; height: 60px; padding: 8px; border: 1px solid #e0e0e0; border-radius: 4px; box-sizing: border-box; margin-bottom: 8px; resize: none; font-size: 12px; }
+        button { width: 100%; padding: 10px; background: var(--primary); color: white; border: none; border-radius: 24px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        button:hover { background: #118f00; }
+        textarea.result { width: 100%; height: 120px; padding: 8px; border: 1px solid #e0e0e0; border-radius: 4px; box-sizing: border-box; margin-top: 8px; resize: none; font-size: 13px;}
+        .hidden { display: none; }
+        .spinner { border: 3px solid rgba(0,0,0,0.1); border-left-color: var(--primary); border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; margin: 10px auto; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
+</head>
 <body>
-    <h2>Upwork Cover Letter Copilot</h2>
-    <p>Welcome to your new AI extension!</p>
-    <button id="actionBtn">Run AI</button>
+    <h2>🚀 Upwork Copilot</h2>
+    
+    <div class="card" id="setupCard">
+        <label style="font-size: 12px; color: #666;">1. Gemini API Key</label>
+        <input type="password" id="apiKey" placeholder="AIzaSy...">
+        <label style="font-size: 12px; color: #666;">2. Your Mini-Resume / Bio</label>
+        <textarea class="bio" id="userBio" placeholder="E.g. I am a React developer with 5 years experience. I specialize in SaaS..."></textarea>
+        <button id="saveSettingsBtn">Save Settings</button>
+    </div>
+
+    <div class="card hidden" id="mainCard">
+        <p style="font-size: 12px; margin-top:0;">Open a job post, then click:</p>
+        <button id="generateBtn">Draft Cover Letter</button>
+        <div id="loading" class="spinner hidden"></div>
+        <textarea id="resultBox" class="result hidden" placeholder="Your cover letter..."></textarea>
+        <button id="copyBtn" class="hidden" style="margin-top: 8px; background: #333;">Copy to Clipboard</button>
+        <button id="editBioBtn" style="margin-top: 8px; background: transparent; border: 1px solid #ccc; color: #333;">Edit My Bio</button>
+    </div>
+
     <script src="popup.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 # Upwork Cover Letter Copilot 📝
 
 <p align="center">
-  <img src="https://placehold.co/800x300/14a800/ffffff?text=Upwork+Cover+Letter+Copilot+📝" alt="Banner" width="100%">
+  <img src="assets/cover.jpg" alt="Banner" width="100%">
 </p>
 
 > **Stop writing generic proposals. This AI reads the job description and crafts a hyper-personalized cover letter based on your bio.**

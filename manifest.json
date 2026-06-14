@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Upwork Cover Letter Copilot",
+  "version": "1.0",
+  "description": "Upwork Cover Letter Copilot powered by AI.",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}
